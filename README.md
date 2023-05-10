@@ -21,7 +21,7 @@ Lave et spil med regnestykker
 Udvide til andre aldersgrupper 
 
 Objekt analyse: 
-Klasse Kandidat:   -   Definition:   -   Udvalgt klasse: 
+Klasse Kandidat   -   Definition-   Udvalgt klasse 
 
 Huskespil - Matche to ens kort (stik) så hurtigt som muligt  -  Memory Game
 
