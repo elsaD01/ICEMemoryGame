@@ -4,7 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f8063200-22ea-46b6-909c-e76b7933e688" name="Changes" comment="User,DatabaseUser" />
+    <list default="true" id="f8063200-22ea-46b6-909c-e76b7933e688" name="Changes" comment="User,DatabaseUser">
+      <change afterPath="$PROJECT_DIR$/src/TextUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/IceMemoryClassdiagram.puml" beforeDir="false" afterPath="$PROJECT_DIR$/Data/IceMemoryClassdiagram.puml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/File" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NewFil" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -33,7 +38,7 @@
     </favorite-branches>
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="elsa" />
+        <entry key="$PROJECT_DIR$" value="main" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -56,7 +61,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "main",
+    "git-widget-placeholder": "elsa",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
