@@ -4,11 +4,14 @@
 class Main
 class User
 class Board
-class Card
-class Database
+class Cards
+class TextUI
+class DatabaseUserIO
 Main-- User
 User-- Board
-Board*--Card
+Board*--Cards
+Cards-- TextUI
+User-- DatabaseUserIO
 
 Main : + User
 Main : + Choiches
@@ -23,10 +26,15 @@ User : + getPassword()
 Board : + Array Cards
 Board : - double Time
 
-Card : + Array [10]
-Card : + Array [15]
-Card : + Array [20]
-Card : - getMatch
+Cards : + Array [10]
+Cards : + Array [20]
+Cards : + Array [30]
+Cards : - getMatch
 
+TextUI : + pickMenu()
+TextUI : + pickLevel()
 
+DatabaseUserIO : (user)
+
+!pragma layout smetana
 @enduml
