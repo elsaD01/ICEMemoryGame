@@ -9,7 +9,8 @@ Kortene ligger med motivet nedad og bagsiden er ens for alle kort. Brugeren skal
 og må vælge to kort ad gangen. Hvis motivet er ens – er der stik og motivet bliver ved med at blive vist.  
 Hvis kortene ikke passer sammen, bliver de vendt om og man kan lede videre. Du fortsætter indtil alle kort er blevet parret.  
  
-Spillet har tid på og man kan se hvor hurtigt man kan få alle stik. Din tid gemmes på en highscore. 
+Spillet har tid på og man kan se hvor hurtigt man kan få alle stik. Din tid gemmes på en highscore.
+Vi laver MemoryGame visuelt på swing.  
   
 Målgruppe: Børn i alderen 2-6 år og pædagogisk personale, som gerne vil bruge spillet, 
 som et pædagogisk redskab, til at fremme børns læring. 
