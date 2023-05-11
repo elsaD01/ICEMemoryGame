@@ -1,0 +1,31 @@
+@startuml
+'https://plantuml.com/use-case-diagram
+
+class Main
+class User
+class Board
+class Card
+class Database
+Main-- User
+User-- Board
+Board*--Card
+
+Main : + User
+Main : + Choiches
+
+User : - String fullName
+User : - String username
+User : - String password
+User : + getFullName()
+User : + getUsername()
+User : + getPassword()
+
+Board : + Array Cards
+Board : - double Time
+
+Card : + Array [10]
+Card : + Array [15]
+Card : + Array [20]
+Card : - getMatch
+
+@enduml
