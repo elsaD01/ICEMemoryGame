@@ -1,17 +1,22 @@
 import java.util.ArrayList;
+import java.util.Random;
 import java.util.Scanner;
 
 public class TextUI {
 
-    Scanner scanner;
+     static Scanner scanner;
+    //Made this static to use in dbU  =  TextUI.pickMenu();
 
-    public String pickMenu(){
+    DatabaseUserIO databaseUserIO;
+
+
+    public static void pickMenu(){
         System.out.println("Welcome to Memory Game ");
         System.out.println("Press 1 to login or press 2 to sign up");
-        return scanner.nextLine();
+        scanner.nextLine();
     }
 
-    public void pickLevel(ArrayList<Cards> cards){
+ /*   public void pickLevel(ArrayList<Cards> cards){
 
         System.out.println("Choose level: ");
 
@@ -33,6 +38,65 @@ public class TextUI {
             //from array cards3
 
         }
+    }*/
+
+
+    public String getUserInput(){
+        System.out.println("Hello. Would you like to: " + "\n" + "1) Log in or" + "\n" + "2) Create user?" + "\n" + "Please write 1 or 2 and press Enter:");
+        return scanner.nextLine();
     }
+
+
+
+    public void loginMenu() {
+        System.out.println("Please enter your username: ");
+        String userName = scanner.nextLine();
+        System.out.println("Please enter your password: ");
+        String password = scanner.nextLine();
+        String id = Integer.toString(counter()); ////(UUID.randomUUID().toString();)
+        if(databaseUserIO.login(userName, password, id)){
+            System.out.println("Welcome " + userName);
+        }
+        else{
+            System.out.println("Sorry, the username or password is incorrect");
+            loginMenu();
+        }
+
+    }
+
+
+    public void createUserMenu() {
+        System.out.println("Please enter a username: ");
+        String userName = scanner.nextLine();
+        System.out.println("Please enter a password: ");
+        String password = scanner.nextLine();
+        String id = Integer.toString(counter());
+        if(databaseUserIO.createUser(userName, password, id)){
+            System.out.println("Welcome " + userName);
+
+        }
+        else{
+            System.out.println("Sorry, the username or password can not be used try agin:");
+            createUserMenu();
+        }
+    }
+
+    public int counter(){
+        Random rn = new Random();
+        int answer = rn.nextInt(100) + 1;
+        return answer;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
 
 }
