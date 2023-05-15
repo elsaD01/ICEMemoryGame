@@ -1,16 +1,19 @@
 public class User {
 
-    private String username;
+    private final String username;
 
-    private String password;
+    private final String password;
 
-    public User(String username, String password){
+    private String id;
+
+    public User(String username, String password, String id){
 
         this.username = username;
         this.password = password;
+        this.id = id;
     }
-/*
-    public String getUsername{
+
+    public String getUsername(){
         return username;
     }
 
@@ -18,5 +21,9 @@ public class User {
         return password;
     }
 
-*/
+    public String getId(){
+        return id;
+    }
+
+
 }
