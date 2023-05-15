@@ -1,0 +1,32 @@
+Index: src/Cards.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>import java.lang.reflect.Array;\r\n\r\n\r\npublic class Cards {\r\n\r\n   String [] cards1 = new String[10];\r\n   String [] cards2 = new String[20];\r\n   String [] cards3 = new String [30];\r\n\r\n   public getMatch () {\r\n      return getMatch;\r\n\r\n   }\r\n\r\n\r\n}\r\n
+===================================================================
+diff --git a/src/Cards.java b/src/Cards.java
+--- a/src/Cards.java	
++++ b/src/Cards.java	
+@@ -1,14 +1,17 @@
+ import java.lang.reflect.Array;
+ 
+-
+ public class Cards {
+ 
+-   String [] cards1 = new String[10];
+-   String [] cards2 = new String[20];
+-   String [] cards3 = new String [30];
++
+ 
+-   public getMatch () {
+-      return getMatch;
++   String [] card1 = new String[10];
++   String [] card2 = new String[20];
++   String [] card3 = new String [30];
++
++   public String 
++
++   //public getMatch () {
++      //return getMatch;
+ 
+    }
+ 
