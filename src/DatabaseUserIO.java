@@ -8,11 +8,11 @@ import java.util.ArrayList;
 
 public class DatabaseUserIO {
 
-    static final String DB_URL = "jdbc:mysql://localhost/ICE";
+    static final String DB_URL = "jdbc:mysql://localhost/ice";
 
     //  Database credentials
     static final String USER = "root";
-    static final String PASS = "elsaalba77";
+    static final String PASS = "LuisKBH13!";
 
     ArrayList<User> users = new ArrayList<>();
 
@@ -36,15 +36,7 @@ public class DatabaseUserIO {
     }
 
     public boolean createUser(String username, String password, String id){
-        if (!isValid(password)){
-            return false;
-        } if (!isUserNameValid(username)){
-            return false;
-        } for (User user: users){
-            if (user.getUsername().equals(username)){
-                return false;
-            }
-        }
+
         users.add(new User(username,password,id));
         return true;
     }
@@ -55,13 +47,12 @@ public class DatabaseUserIO {
         try {
             //STEP 1: Register JDBC driver
             Class.forName("com.mysql.jdbc.Driver");
-
             System.out.println("Connecting to database loading users");
             conn = DriverManager.getConnection(DB_URL, USER, PASS);
 
             //STEP 3: Execute a query
             System.out.println("Creating statement...");
-            String sql = "SELECT * FROM streaming.users";
+            String sql = "SELECT id, username, password FROM ice.user";
             stmt = conn.prepareStatement(sql);
 
             ResultSet rs = stmt.executeQuery(sql);
@@ -71,9 +62,9 @@ public class DatabaseUserIO {
 
                 //Retrieve by column name
 
-                String username = rs.getString("UserName");
-                String password = rs.getString("Password");
-                String id = rs.getString("Id");
+                String username = rs.getString("username");
+                String password = rs.getString("password");
+                String id = rs.getString("id");
 
                 users.add(new User(username, password, id));
             }
@@ -111,13 +102,14 @@ public class DatabaseUserIO {
         try
         {
             //STEP 1: Register JDBC driver
+
             Class.forName("com.mysql.jdbc.Driver");
             //STEP 2: Open a connection
             System.out.println("Connecting to database loading saveusers");
             conn = DriverManager.getConnection(DB_URL, USER, PASS);
 
             // the mysql insert statement
-            String sql = "INSERT INTO streaming.users (UserName,password) VALUES (?, ?)";
+            String sql = "INSERT INTO ice.user (username,password) VALUES (?, ?)";
 
             //INSERT INTO streaming.users (UserName,password) VALUES (?, ?)
 
@@ -133,7 +125,7 @@ public class DatabaseUserIO {
 
 
             conn.close();
-            TextUI.pickMenu();
+           // TextUI.pickMenu();
         }
         catch (Exception e)
         {
@@ -144,7 +136,7 @@ public class DatabaseUserIO {
     }
 
     public boolean isUserNameValid(String username) {
-            if(username == null || username.length() > 20 || username.equals("")) {
+            if(username == null || username.length() > 15 || username.equals("")) {
                 return false;
             }
             else {
@@ -166,6 +158,8 @@ public class DatabaseUserIO {
         public static String getId() {
             return currentId;
         }
+
+
     
     }
 
