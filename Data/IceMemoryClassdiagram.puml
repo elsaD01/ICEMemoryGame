@@ -1,0 +1,40 @@
+@startuml
+'https://plantuml.com/use-case-diagram
+
+class Main
+class User
+class Board
+class Cards
+class TextUI
+class DatabaseUserIO
+Main-- User
+User-- Board
+Board*--Cards
+Cards-- TextUI
+User-- DatabaseUserIO
+
+Main : + User
+Main : + Choiches
+
+User : - String fullName
+User : - String username
+User : - String password
+User : + getFullName()
+User : + getUsername()
+User : + getPassword()
+
+Board : + Array Cards
+Board : - double Time
+
+Cards : + Array [10]
+Cards : + Array [20]
+Cards : + Array [30]
+Cards : - getMatch
+
+TextUI : + pickMenu()
+TextUI : + pickLevel()
+
+DatabaseUserIO : (user)
+
+!pragma layout smetana
+@enduml
