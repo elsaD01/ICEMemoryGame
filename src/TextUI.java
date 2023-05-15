@@ -1,17 +1,26 @@
 import java.util.ArrayList;
+import java.util.Random;
 import java.util.Scanner;
 
 public class TextUI {
 
-    Scanner scanner;
+  //   private  Scanner scanner1= new Scanner(System.in);
+    //Made this static to use in dbU  =  TextUI.pickMenu();
 
-    public String pickMenu(){
+    DatabaseUserIO databaseUserIO;
+
+ public TextUI(DatabaseUserIO databaseUserIO){
+     this.databaseUserIO= databaseUserIO;
+ }
+
+    public static void pickMenu(){
+        Scanner scanner= new Scanner(System.in);
         System.out.println("Welcome to Memory Game ");
         System.out.println("Press 1 to login or press 2 to sign up");
-        return scanner.nextLine();
+        scanner.nextLine();
     }
 
-    public void pickLevel(ArrayList<Cards> cards){
+   public void pickLevel(){//(ArrayList<Cards> cards){
 
         System.out.println("Choose level: ");
 
@@ -34,5 +43,62 @@ public class TextUI {
 
         }
     }
+
+
+    public String getUserInput(){
+        Scanner scanner= new Scanner(System.in);
+        System.out.println("Hello. Would you like to: " + "\n" + "1) Log in or" + "\n" + "2) Create user?" + "\n" + "Please write 1 or 2 and press Enter:");
+        return scanner.nextLine();
+    }
+
+
+
+    public void loginMenu() {
+        Scanner scanner= new Scanner(System.in);
+        System.out.println("Please enter your username: ");
+        String userName = scanner.nextLine();
+        System.out.println("Please enter your password: ");
+        String password = scanner.nextLine();
+        String id = "";
+        if(databaseUserIO.login(userName, password, id)){
+            System.out.println("Welcome " + userName);
+        }
+        else{
+            System.out.println("Sorry, the username or password is incorrect");
+            loginMenu();
+        }
+
+    }
+
+
+    public void createUserMenu() {
+        Scanner scanner= new Scanner(System.in);
+        System.out.println("Please enter a username: ");
+        String userName = scanner.nextLine();
+        System.out.println("Please enter a password: ");
+        String password = scanner.nextLine();
+        String id = "";
+        if(databaseUserIO.createUser(userName, password, id)){
+            System.out.println("Welcome " + userName);
+
+        }
+        else{
+            System.out.println("Sorry, the username or password can not be used try agin:");
+            createUserMenu();
+        }
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 }
