@@ -1,7 +1,7 @@
 public class UserMenu {
 
     DatabaseUserIO databaseUserIO = new DatabaseUserIO();
-    TextUI textUI = new TextUI();
+    TextUI textUI = new TextUI(databaseUserIO);
     public void setupUserMenu() {
 
         databaseUserIO.loadUsers();
@@ -20,6 +20,6 @@ public class UserMenu {
             default:
                 System.out.println("Goodbye");
         }
-        //  userHandler.saveUsers();
+        textUI.pickLevel();
     }
 }
