@@ -11,15 +11,16 @@ public class UserMenu {
         switch (userInput) {
             case "1":
                 textUI.loginMenu();
+
                 break;
             case "2":
                 textUI.createUserMenu();
-
                 databaseUserIO.saveUsers();
                 break;
             default:
                 System.out.println("Goodbye");
         }
         textUI.pickLevel();
+       // databaseUserIO.saveUsers();
     }
 }
