@@ -32,6 +32,10 @@ public class TextUI {
 
         if(input == 1){
             System.out.println("You chose level easy");
+            Board board = new Board();
+            int timeScore = board.levelOne();
+            databaseUserIO.saveTimeScore(timeScore);
+
             //from array cards1
         } else if (input == 2) {
             System.out.println("You chose level medium");
