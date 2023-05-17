@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f8063200-22ea-46b6-909c-e76b7933e688" name="Changes" comment="update plantuml">
-      <change beforePath="$PROJECT_DIR$/src/DatabaseUserIO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DatabaseUserIO.java" afterDir="false" />
-    </list>
+    <list default="true" id="f8063200-22ea-46b6-909c-e76b7933e688" name="Changes" comment="update plantuml" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -63,7 +61,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "main",
+    "git-widget-placeholder": "elsa",
     "last_opened_file_path": "C:/Users/signe/IdeaProjects/PlaywithFiles",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
