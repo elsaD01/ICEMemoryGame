@@ -3,38 +3,72 @@
 
 class Main
 class User
-class Board
-class Cards
-class TextUI
+class UserMenu
 class DatabaseUserIO
-Main-- User
-User-- Board
-Board*--Cards
-Cards-- TextUI
-User-- DatabaseUserIO
+class Board
+class Card
+class TextUI
+class SoundInput
 
-Main : + User
-Main : + Choiches
 
-User : - String fullName
-User : - String username
-User : - String password
-User : + getFullName()
+Main *- SoundInput
+SoundInput *-- SoundTrack
+
+Main *-- User
+User *-- UserMenu
+User *-- Board
+UserMenu *-- DatabaseUserIO
+Board *--Card
+Card *-- TextUI
+DatabaseUserIO *-- TextUI
+
+Main : + static void main()
+Main : + SoundInput;
+Main : + UserMenu;
+
+User : - String username;
+User : - String password;
+User : - String id;
 User : + getUsername()
 User : + getPassword()
+User : + getId()
+User : + setHighscore()
+User : + getHighscore()
 
-Board : + Array Cards
-Board : - double Time
+UserMenu : DatabaseUserIO databaseUserIO;
+UserMenu : TextUI textUI;
+UserMenu : + setupUserMenu()
 
-Cards : + Array [10]
-Cards : + Array [20]
-Cards : + Array [30]
-Cards : - getMatch
+DatabaseUserIO : + ArrayList<User> users;
+DatabaseUserIO : - String currentId;
+DatabaseUserIO : + login()
+DatabaseUserIO : + createUser()
+DatabaseUserIO : + loadUsers()
+DatabaseUserIO : + saveUsers()
+DatabaseUserIO : + saveHighscore()
+DatabaseUserIO : + saveTimeScore()
 
-TextUI : + pickMenu()
+Board : + ArrayList<String> Card;
+Board : + levelOne()
+Board : + getCardIndex()
+Board : + printBoard()
+
+Card : + String picture;
+Card : + String description;
+Card : + boolean cardFlipped;
+Card : + getDescription;
+Card : + getPicture;
+
+TextUI : DatabaseUserIO databaseUserIO;
 TextUI : + pickLevel()
+TextUI : + getUserInput()
+TextUI : + loginMenu()
+TextUI : + createUserMenu()
 
-DatabaseUserIO : (user)
+SoundInput : runMusic()
+SoundTrack : music.wav
+
+
 
 !pragma layout smetana
 @enduml

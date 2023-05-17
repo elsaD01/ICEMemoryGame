@@ -15,12 +15,12 @@ public class UserMenu {
                 break;
             case "2":
                 textUI.createUserMenu();
-                databaseUserIO.saveUsers();
+                //databaseUserIO.saveUsers();
                 break;
             default:
                 System.out.println("Goodbye");
         }
         textUI.pickLevel();
-       // databaseUserIO.saveUsers();
+        databaseUserIO.saveHighscore();
     }
 }

@@ -7,16 +7,12 @@ public class Board {
     ArrayList <String> Cards = new ArrayList <String> ();
 
 
-    public Board() {
-
-    }
-
         public int levelOne()  {
             long start = System.currentTimeMillis();
 
             //arrays with the parameters from card class.
             Scanner scanner = new Scanner(System.in);
-            Card [] cards1 = new Card[4];
+            Card [] cards1 = new Card[12];
             cards1[0]=new Card("002_The_lion_king_Snyggve_in_the_Serengeti_National_Park_Photo_by_Giles_Laurent.jpg","lion");
             cards1[1]=new Card("002_The_lion_king_Snyggve_in_the_Serengeti_National_Park_Photo_by_Giles_Laurent.jpg","lion");
 
@@ -37,7 +33,6 @@ public class Board {
             // this is doring random of the cards
             Collections.shuffle(Arrays.asList(cards1));
 
-            // This is the array thas instiaseres   - pictutures skal bruges til at tegne.
             // board is use for what can you se on the board
             String[] pictures = new String[cards1.length];
             String[] board = new String[cards1.length];
@@ -46,10 +41,8 @@ public class Board {
             int pairsFound = 0;     // tælle variable der tjekker om der er stik
 
             while (pairsFound < (cards1.length/2)) {
-                //Her skal der erstattes med en metode de tegner borded.
                 printBoard(board);
 
-                //laves en funktion som kan give det index som bliver valgt af brugeren.
                 // This tjek if the first number is allowed. and it turns around the first card.
                 int firstTry = getCardIndex(scanner, cards1, "Enter index of first card to flip:");
                 board[firstTry] = cards1[firstTry].getDescription();
@@ -105,7 +98,6 @@ public class Board {
             }
             return index;
         }
-
 
         //It prints cards description of the picture
         public static void printBoard(String[] board)
