@@ -7,10 +7,6 @@ public class Board {
     ArrayList <String> Cards = new ArrayList <String> ();
 
 
-    public Board() {
-
-    }
-
         public int levelOne()  {
             long start = System.currentTimeMillis();
 

@@ -1,10 +1,10 @@
 
 
 public class Card {
-    String picture;
-    String description;
+    public String picture;
+    public String description;
+    public boolean cardFlipped;
 
-    boolean cardFlipped;
     public Card(String picture, String description){
         this.picture= picture;
         this.description=description;
