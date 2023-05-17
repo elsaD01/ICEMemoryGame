@@ -4,8 +4,7 @@ public class User {
 
     private final String password;
 
-    private String id;
-
+    private final String id;
 
     private int highscore;
 

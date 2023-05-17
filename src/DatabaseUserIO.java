@@ -1,4 +1,4 @@
-import java.io.File;
+
 import java.sql.*;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -16,9 +16,6 @@ public class DatabaseUserIO {
 
     ArrayList<User> users = new ArrayList<>();
 
-    File file;
-
-    private static String currentUser;
     private static String currentId;
 
     public boolean login(String username, String password, String id) {
@@ -28,7 +25,6 @@ public class DatabaseUserIO {
         for (User user : users) {
             if (user.getUsername() != null && user.getPassword() != null
                     && user.getUsername().equals(username) && user.getPassword().equals(password)) {
-                currentUser = user.getUsername();
                 currentId = user.getId();
                 return true;
             }
@@ -37,8 +33,11 @@ public class DatabaseUserIO {
     }
 
     public boolean createUser(String username, String password, String id) {
-
         users.add(new User(username, password, id, 99999));
+        saveUsers();
+        users.clear();
+        loadUsers();
+        login(username, password, "");
         return true;
     }
 
@@ -62,7 +61,6 @@ public class DatabaseUserIO {
             while (rs.next()) {
 
                 //Retrieve by column name
-
                 String username = rs.getString("username");
                 String password = rs.getString("password");
                 String id = rs.getString("id");
@@ -106,7 +104,7 @@ public class DatabaseUserIO {
 
             Class.forName("com.mysql.jdbc.Driver");
             //STEP 2: Open a connection
-            System.out.println("Connecting to database loading saveusers");
+            System.out.println("Connecting to database saveusers");
             conn = DriverManager.getConnection(DB_URL, USER, PASS);
 
             // the mysql insert statement
@@ -116,21 +114,58 @@ public class DatabaseUserIO {
 
             // create the mysql insert preparedstatement
 
-        stmt = conn.prepareStatement(sql);
-            for (User user : users) {
-                stmt.setString(1, user.getUsername());
-                stmt.setString(2, user.getPassword());
-                stmt.setInt(3, user.getHighscore());
-                stmt.addBatch();
-                // execute the preparedstatement
+            stmt = conn.prepareStatement(sql);
 
+            User user = users.get(users.size() - 1);
+            stmt.setString(1, user.getUsername());
+            stmt.setString(2, user.getPassword());
+            stmt.setInt(3, user.getHighscore());
+
+            // execute the preparedstatement
+            stmt.executeUpdate();
+            conn.close();
+
+        } catch (Exception e) {
+            System.err.println("Got an exception!");
+            System.err.println(e.getMessage());
+        }
+
+    }
+
+    public void saveHighscore() {
+
+        int currentHighscore = 99999;
+
+        //find current user highscore
+        for (User user : users) {
+            if (user.getId() == currentId) {
+                currentHighscore = user.getHighscore();
             }
+        }
 
+        Connection conn = null;
+        PreparedStatement stmt = null;
+        try {
+            //STEP 1: Register JDBC driver
+
+            Class.forName("com.mysql.jdbc.Driver");
+            //STEP 2: Open a connection
+            System.out.println("Connecting to database loading save highscore");
+            conn = DriverManager.getConnection(DB_URL, USER, PASS);
+
+            // the mysql insert statement
+            String sql = "UPDATE ice.user SET highscore = ? WHERE id = ?";
+
+
+            // create the mysql insert preparedstatement
+            stmt = conn.prepareStatement(sql);
+
+            stmt.setInt(1, currentHighscore);
+            stmt.setString(2, currentId);
 
             stmt.executeUpdate();
-
             conn.close();
-            // TextUI.pickMenu();
+
         } catch (Exception e) {
             System.err.println("Got an exception!");
             System.err.println(e.getMessage());
@@ -162,12 +197,8 @@ public class DatabaseUserIO {
                 if (timeScore < user.getHighscore()) {
                     user.setHighscore(timeScore);
                 }
-
             }
-
-
         }
-
 
     }
 
