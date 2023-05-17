@@ -4,9 +4,6 @@ import java.util.Scanner;
 
 public class TextUI {
 
-  //   private  Scanner scanner1= new Scanner(System.in);
-    //Made this static to use in dbU  =  TextUI.pickMenu();
-
     DatabaseUserIO databaseUserIO;
 
  public TextUI(DatabaseUserIO databaseUserIO){
