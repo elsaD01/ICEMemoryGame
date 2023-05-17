@@ -8,11 +8,11 @@ import java.util.ArrayList;
 
 public class DatabaseUserIO {
 
-    static final String DB_URL = "jdbc:mysql://localhost/ice";
+    static final String DB_URL = "jdbc:mysql://localhost/ICE";
 
     //  Database credentials
     static final String USER = "root";
-    static final String PASS = "LuisKBH13!";
+    static final String PASS = "x";
 
     ArrayList<User> users = new ArrayList<>();
 
