@@ -6,7 +6,5 @@ public class Main {
 
         UserMenu userMenu = new UserMenu();
         userMenu.setupUserMenu();
-
-
     }
 }

@@ -1,5 +1,4 @@
 public class UserMenu {
-
     DatabaseUserIO databaseUserIO = new DatabaseUserIO();
     TextUI textUI = new TextUI(databaseUserIO);
     public void setupUserMenu() {

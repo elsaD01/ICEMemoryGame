@@ -1,11 +1,7 @@
 public class User {
-
     private final String username;
-
     private final String password;
-
     private final String id;
-
     private int highscore;
 
     public User(String username, String password, String id, int highscore){
@@ -40,6 +36,4 @@ public class User {
 
 
     }
-
-
 }

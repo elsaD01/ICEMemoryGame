@@ -6,7 +6,6 @@ import java.util.Scanner;
 public class Board {
     ArrayList <String> Cards = new ArrayList <String> ();
 
-
         public int levelOne()  {
             long start = System.currentTimeMillis();
 
@@ -76,8 +75,8 @@ public class Board {
 
             System.out.println(timeElapsed + " Seconds");
             return (int) timeElapsed;
-
         }
+
         public static int getCardIndex(Scanner scanner, Card[] cards, String prompt)
         {     // this metode tjeks if the number the user input is vallid
             int index;
