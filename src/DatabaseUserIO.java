@@ -11,7 +11,7 @@ public class DatabaseUserIO {
 
     //  Database credentials
     static final String USER = "root";
-    static final String PASS = "x";
+    static final String PASS = "elsaalba77";
 
     ArrayList<User> users = new ArrayList<>();
 
