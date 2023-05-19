@@ -1,5 +1,4 @@
 public class UserMenu {
-
     DatabaseUserIO databaseUserIO = new DatabaseUserIO();
     TextUI textUI = new TextUI(databaseUserIO);
     public void setupUserMenu() {
@@ -11,15 +10,16 @@ public class UserMenu {
         switch (userInput) {
             case "1":
                 textUI.loginMenu();
+
                 break;
             case "2":
                 textUI.createUserMenu();
-
-                databaseUserIO.saveUsers();
+                //databaseUserIO.saveUsers();
                 break;
             default:
                 System.out.println("Goodbye");
         }
         textUI.pickLevel();
+        databaseUserIO.saveHighscore();
     }
 }

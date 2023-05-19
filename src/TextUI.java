@@ -1,11 +1,6 @@
-import java.util.ArrayList;
-import java.util.Random;
 import java.util.Scanner;
 
 public class TextUI {
-
-  //   private  Scanner scanner1= new Scanner(System.in);
-    //Made this static to use in dbU  =  TextUI.pickMenu();
 
     DatabaseUserIO databaseUserIO;
 
@@ -32,6 +27,10 @@ public class TextUI {
 
         if(input == 1){
             System.out.println("You chose level easy");
+            Board board = new Board();
+            int timeScore = board.levelOne();
+            databaseUserIO.saveTimeScore(timeScore);
+
             //from array cards1
         } else if (input == 2) {
             System.out.println("You chose level medium");
@@ -44,14 +43,11 @@ public class TextUI {
         }
     }
 
-
     public String getUserInput(){
         Scanner scanner= new Scanner(System.in);
         System.out.println("Hello. Would you like to: " + "\n" + "1) Log in or" + "\n" + "2) Create user?" + "\n" + "Please write 1 or 2 and press Enter:");
         return scanner.nextLine();
     }
-
-
 
     public void loginMenu() {
         Scanner scanner= new Scanner(System.in);
@@ -70,7 +66,6 @@ public class TextUI {
 
     }
 
-
     public void createUserMenu() {
         Scanner scanner= new Scanner(System.in);
         System.out.println("Please enter a username: ");
@@ -87,18 +82,5 @@ public class TextUI {
             createUserMenu();
         }
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 }
